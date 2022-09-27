@@ -7,6 +7,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <!-- Styles -->
+
     <style>
         html, body {
             background-color: #fff;
@@ -109,6 +110,11 @@
     }
 }
     </style>
+
+    <meta name="theme-color" content="#6777ef"/>
+    <link rel="apple-touch-icon" href="{{ asset('icon-512x512.png') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+
 </head>
 <body>
 
@@ -139,4 +145,17 @@
 </div>
 </body>
 
+
 </html>
+<script src="{{ asset('/services.js') }}"> </script>
+<script>
+            if ( navigator.serviceWorker ) {
+                navigator.serviceWorker
+                    .register('/services.js')
+                    .then(function(reg){ console.log("Servicio Registrado");
+                        console.log("Service worker registrado en el scope: " + reg.scope)        
+                    });
+            }
+            else
+                alert("No acepta service worker");
+</script>
